@@ -30,6 +30,22 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      - name: Read Hex Casting pin
+        id: hex
+        run: echo "commit=$(grep '^hexcasting_commit=' gradle.properties | cut -d= -f2)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache Hex Casting jar
+        id: hexcache
+        uses: actions/cache@v4
+        with:
+          path: libs/hexcasting-neoforge-*.jar
+          key: hexcasting-neoforge-${{ steps.hex.outputs.commit }}
+
+      # Hex Casting's 1.21 development builds are not on Maven, so build the pinned commit once and cache it.
+      - name: Build Hex Casting from source
+        if: steps.hexcache.outputs.cache-hit != 'true'
+        run: bash tools/build-hexcasting.sh
+
       - name: Build
         run: ./gradlew build --stacktrace
 

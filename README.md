@@ -3,10 +3,10 @@
 An addon for [Hex Casting](https://github.com/FallingColors/HexMod) about illusions, echoes, phantoms, pocket space
 and quantum media. Minecraft **1.21.1**, **NeoForge**, Java 21. Mod id: `hexquantum`.
 
-> **Hex Casting version.** Hex Casting has no stable release for 1.21.1 yet. HexQuantum is built against the 1.21
-> development build `0.12.0-devel-pre-53` (the one the current 1.21.1 addon ecosystem uses) and declares
-> `hexcasting >= 0.12`. You need that Hex Casting build and its dependencies (PAUCAL, Patchouli, Inline, Caelus,
-> Kotlin for Forge) installed.
+> **Hex Casting version.** Hex Casting has no stable release for 1.21.1 yet, and its 1.21 development builds are
+> not published to Maven. HexQuantum is built against development build `0.12.0-devel-pre-53` (Hex Casting commit
+> `32c65158`, the build the current 1.21.1 addon ports use) and declares `hexcasting >= 0.12`. You need a 1.21.1 Hex
+> Casting build and its dependencies (PAUCAL, Patchouli, Inline, Caelus, Kotlin for Forge) installed.
 
 ## Download
 
@@ -24,12 +24,12 @@ Tagged versions (`v*`) are also published on the **Releases** page with the jar 
 ## Building
 
 ```sh
+bash tools/build-hexcasting.sh   # once: builds the pinned Hex Casting commit into libs/ (CI caches this)
 ./gradlew build
 ```
 
 The mod jar ends up in `build/libs/` (and `neoforge/build/libs/`). `./gradlew :neoforge:runClient` starts a dev client.
-To build against a local Hex Casting jar instead of the one on maven.blamejared.com, put
-`hexcasting-neoforge-1.21.1-<hexcasting_version>.jar` into `libs/`.
+Instead of building Hex Casting you can put any `hexcasting-neoforge-1.21.1-<hexcasting_version>.jar` into `libs/`.
 
 ## Project structure
 
@@ -62,6 +62,7 @@ hex-quantum/
 ├── neoforge/                        NeoForge-only code: @Mod entry, IPlatform impl (registries, attachments,
 │                                    networking), config file, event and renderer wiring, neoforge.mods.toml
 ├── tools/
+│   ├── build-hexcasting.sh          builds the pinned Hex Casting 1.21 commit into libs/ (not on Maven)
 │   ├── patterns.json                single source of truth for pattern names/signatures/stack effects/costs
 │   ├── gen_assets.py                regenerates lang, book entries and docs/PATTERNS.md; checks HQActions.java
 │   ├── check_patterns.py            validates signatures (no overlap, no clash with Hex Casting)
