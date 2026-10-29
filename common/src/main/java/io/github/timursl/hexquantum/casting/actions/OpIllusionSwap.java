@@ -8,6 +8,8 @@ import io.github.timursl.hexquantum.casting.mishaps.MishapQuantum;
 import io.github.timursl.hexquantum.config.HQConfig;
 import io.github.timursl.hexquantum.entity.IllusionEntity;
 import io.github.timursl.hexquantum.entity.IllusionManager;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.List;
@@ -47,6 +49,14 @@ public class OpIllusionSwap extends HQAction {
                 illusion.moveTo(playerPos.x, playerPos.y, playerPos.z, player.getYRot(), player.getXRot());
                 player.teleportTo(illusionPos.x, illusionPos.y, illusionPos.z);
                 player.resetFallDistance();
+                burst(player.serverLevel(), illusionPos);
+                burst(player.serverLevel(), playerPos);
             });
+    }
+
+    private static void burst(ServerLevel level, Vec3 pos) {
+        level.sendParticles(ParticleTypes.EXPLOSION, pos.x, pos.y + 1, pos.z, 3, 0.4, 0.5, 0.4, 0.0);
+        level.sendParticles(ParticleTypes.POOF, pos.x, pos.y + 1, pos.z, 40, 0.3, 0.6, 0.3, 0.12);
+        level.sendParticles(ParticleTypes.END_ROD, pos.x, pos.y + 1, pos.z, 30, 0.3, 0.6, 0.3, 0.2);
     }
 }
