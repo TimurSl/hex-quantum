@@ -27,7 +27,7 @@ git -C "$work/HexMod" checkout --quiet "$commit"
 (cd "$work/HexMod" && chmod +x gradlew && ./gradlew :Neoforge:assemble --no-daemon --stacktrace)
 
 jar="$(find "$work/HexMod/Neoforge/build/libs" -maxdepth 1 -name "hexcasting-neoforge-${mc}-*.jar" \
-    ! -name '*-sources.jar' ! -name '*-dev*.jar' ! -name '*-javadoc.jar' | head -n 1)"
+    ! -name '*-sources.jar' ! -name '*-dev.jar' ! -name '*-dev-shadow.jar' ! -name '*-javadoc.jar' | head -n 1)"
 if [[ -z "$jar" ]]; then
     echo "Hex Casting build produced no jar" >&2
     ls -l "$work/HexMod/Neoforge/build/libs" >&2 || true
