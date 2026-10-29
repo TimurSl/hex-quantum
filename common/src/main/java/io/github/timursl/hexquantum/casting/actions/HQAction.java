@@ -70,7 +70,7 @@ public abstract class HQAction implements Action {
             image.getEscapeNext(),
             image.getSimulateNext(),
             image.getOpsConsumed() + 1,
-            image.getUserData()
+            image.getComponents()
         );
         SpellContinuation next = result.continuation != null ? result.continuation : continuation;
         var sound = result.effect != null ? HexEvalSounds.SPELL.get() : HexEvalSounds.NORMAL_EXECUTE.get();

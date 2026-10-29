@@ -53,7 +53,7 @@ public class OpWait extends HQAction {
         }
 
         CastingImage resumed = image.copy(stack.dropRight(1), image.getParenCount(), image.getParenthesized(),
-            image.getEscapeNext(), image.getSimulateNext(), 0L, image.getUserData());
+            image.getEscapeNext(), image.getSimulateNext(), 0L, image.getComponents());
         int ticks = Math.max(1, (int) Math.round(seconds * 20));
 
         List<OperatorSideEffect> sideEffects = new ArrayList<>();
@@ -64,7 +64,7 @@ public class OpWait extends HQAction {
 
         // The current VM ends here with an empty stack; the resumed VM continues with the real one.
         CastingImage halted = image.copy(TreeList.empty(), image.getParenCount(), image.getParenthesized(),
-            image.getEscapeNext(), image.getSimulateNext(), image.getOpsConsumed() + 1, image.getUserData());
+            image.getEscapeNext(), image.getSimulateNext(), image.getOpsConsumed() + 1, image.getComponents());
         return new OperationResult(halted, sideEffects, SpellContinuation.Done.INSTANCE, HexEvalSounds.NORMAL_EXECUTE.get());
     }
 

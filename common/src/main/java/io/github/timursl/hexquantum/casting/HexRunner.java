@@ -6,7 +6,6 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.utils.TreeList;
 import io.github.timursl.hexquantum.HexQuantum;
 import io.github.timursl.hexquantum.casting.env.RemoteCastEnv;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,6 +13,7 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -43,7 +43,7 @@ public final class HexRunner {
         try {
             RemoteCastEnv env = new RemoteCastEnv(caster, center);
             CastingImage image = new CastingImage(TreeList.from(initialStack), 0, TreeList.empty(), false, false, 0L,
-                new CompoundTag());
+                Map.of());
             CastingVM vm = new CastingVM(image, env);
             vm.queueExecuteAndWrapIotas(hex, level);
             return true;
@@ -61,7 +61,7 @@ public final class HexRunner {
             return true;
         }
         RemoteCastEnv env = new RemoteCastEnv(caster, center);
-        env.triggerCreateEvent(new CompoundTag());
+        env.triggerCreateEvent(new CastingImage());
         if (env.extractMedia(cost, true) > 0) {
             return false;
         }

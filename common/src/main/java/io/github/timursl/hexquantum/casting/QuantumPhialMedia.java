@@ -23,7 +23,7 @@ public final class QuantumPhialMedia implements CastingEnvironmentComponent.Extr
     }
 
     public static void init() {
-        CastingEnvironment.addCreateEventListener((env, userData) -> {
+        CastingEnvironment.addCreateEventListener((env, image) -> {
             if (env instanceof PlayerBasedCastEnv && env.getCastingEntity() instanceof ServerPlayer player
                 && !Services.PLATFORM.isFakePlayer(player)) {
                 env.addExtension(new QuantumPhialMedia(player));
