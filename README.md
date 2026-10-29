@@ -4,8 +4,8 @@ An addon for [Hex Casting](https://github.com/FallingColors/HexMod) about illusi
 and quantum media. Minecraft **1.21.1**, **NeoForge**, Java 21. Mod id: `hexquantum`.
 
 > **Hex Casting version.** Hex Casting has no stable release for 1.21.1 yet, and its 1.21 development builds are
-> not published to Maven. HexQuantum is built against development build `0.12.0-devel-pre-53` (Hex Casting commit
-> `32c65158`, the build the current 1.21.1 addon ports use) and declares `hexcasting >= 0.12`. You need a 1.21.1 Hex
+> not published to Maven. HexQuantum is built against development build `0.12.0-devel-pre-64` (Hex Casting commit
+> `7d5c1576`) and requires `0.12.0-devel-pre-64` or newer: earlier development builds have an incompatible casting API. You need a 1.21.1 Hex
 > Casting build and its dependencies (PAUCAL, Patchouli, Inline, Caelus, Kotlin for Forge) installed.
 
 ## Download

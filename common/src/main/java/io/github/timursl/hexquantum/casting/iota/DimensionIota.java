@@ -1,5 +1,6 @@
 package io.github.timursl.hexquantum.casting.iota;
 
+import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 import com.mojang.serialization.MapCodec;
@@ -12,6 +13,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * A reference to a dimension (pushed by Exit Anchor). Hex Casting has no dimension iota of its own.
@@ -29,6 +31,13 @@ public class DimensionIota extends Iota {
     }
 
     @Override
+    public boolean isTruthy(@Nullable CastingEnvironment env) {
+        return true;
+    }
+
+    /**
+     * Hex Casting builds before the "entity nulling rework" declare {@code isTruthy()} without an environment.
+     */
     public boolean isTruthy() {
         return true;
     }
