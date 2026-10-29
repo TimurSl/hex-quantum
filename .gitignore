@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+out/
+run/
+runs/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+bin/
+
+# Local dependency drops (see README)
+libs/*.jar
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,14 @@
+{
+  "name": "block.hexquantum.phantom_block",
+  "category": "hexcasting:hexquantum",
+  "icon": "minecraft:glass",
+  "sortnum": 101,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexquantum.page.phantom_block"
+    }
+  ]
+}

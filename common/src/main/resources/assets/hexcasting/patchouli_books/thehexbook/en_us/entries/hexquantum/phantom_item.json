@@ -1,0 +1,14 @@
+{
+  "name": "entity.hexquantum.phantom_item",
+  "category": "hexcasting:hexquantum",
+  "icon": "minecraft:glass_bottle",
+  "sortnum": 109,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexquantum.page.phantom_item"
+    }
+  ]
+}

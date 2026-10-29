@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.timursl.hexquantum.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "EntityMixin",
+    "ServerGamePacketListenerImplMixin"
+  ],
+  "client": [
+    "client.CameraMixin",
+    "client.FrustumMixin",
+    "client.GameRendererMixin",
+    "client.LivingEntityRendererMixin",
+    "client.LocalPlayerMixin",
+    "client.ScreenEffectRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

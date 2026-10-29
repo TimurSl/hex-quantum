@@ -1,0 +1,13 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        maven { url = 'https://maven.neoforged.net/releases' }
+    }
+}
+
+rootProject.name = 'hexquantum'
+
+// "common" holds all loader-independent code and resources and is compiled against vanilla Minecraft only.
+// Each loader project ("neoforge", later "fabric") compiles the common sources together with its own platform code.
+include 'common'
+include 'neoforge'

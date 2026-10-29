@@ -1,0 +1,18 @@
+{
+  "name": "hexcasting.action.hexquantum:optics/shifted",
+  "category": "hexcasting:hexquantum",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 29,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexquantum:optics/shifted",
+      "anchor": "hexquantum:optics/shifted",
+      "input": "entity (player), vector (offset), number (seconds)",
+      "output": "",
+      "text": "hexquantum.page.optics_shifted"
+    }
+  ]
+}

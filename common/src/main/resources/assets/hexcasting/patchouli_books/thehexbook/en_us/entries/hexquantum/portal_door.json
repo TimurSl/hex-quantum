@@ -1,0 +1,14 @@
+{
+  "name": "block.hexquantum.portal_door",
+  "category": "hexcasting:hexquantum",
+  "icon": "hexquantum:portal_door",
+  "sortnum": 102,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexquantum.page.portal_door"
+    }
+  ]
+}

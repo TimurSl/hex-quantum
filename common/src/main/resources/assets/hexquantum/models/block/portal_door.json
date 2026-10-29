@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "minecraft:block/amethyst_block",
+    "side": "hexquantum:block/portal_door"
+  }
+}

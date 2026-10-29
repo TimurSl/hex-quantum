@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "hexquantum:block/phantom_block" }
+  }
+}

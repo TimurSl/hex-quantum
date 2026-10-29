@@ -1,0 +1,14 @@
+{
+  "name": "entity.hexquantum.cyclic_echo",
+  "category": "hexcasting:hexquantum",
+  "icon": "minecraft:echo_shard",
+  "sortnum": 106,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexquantum.page.cyclic_echo"
+    }
+  ]
+}

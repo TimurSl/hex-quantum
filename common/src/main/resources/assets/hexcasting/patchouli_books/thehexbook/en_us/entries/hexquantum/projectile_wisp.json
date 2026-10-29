@@ -1,0 +1,14 @@
+{
+  "name": "entity.hexquantum.projectile_wisp",
+  "category": "hexcasting:hexquantum",
+  "icon": "minecraft:end_rod",
+  "sortnum": 108,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexquantum.page.projectile_wisp"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+plugins {
+    id 'net.neoforged.moddev'
+}
+
+base {
+    archivesName = "${mod_id}-neoforge-${minecraft_version}"
+}
+
+// The common code is compiled directly into the loader jar.
+sourceSets.main.java.srcDir project(':common').file('src/main/java')
+sourceSets.main.resources.srcDir project(':common').file('src/main/resources')
+
+neoForge {
+    version = neo_version
+
+    runs {
+        configureEach {
+            systemProperty 'forge.logging.markers', 'REGISTRIES'
+            logLevel = org.slf4j.event.Level.INFO
+        }
+        client {
+            client()
+        }
+        server {
+            server()
+            programArgument '--nogui'
+        }
+    }
+
+    mods {
+        "${mod_id}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+configurations {
+    // Mods only needed when running the game from the dev environment.
+    localRuntime
+    runtimeClasspath.extendsFrom localRuntime
+}
+
+addHexcasting('compileOnly')
+addHexcasting('localRuntime')
+
+dependencies {
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:${kotlin_version}"
+    compileOnly 'org.jetbrains:annotations:24.1.0'
+
+    // Only resolved by the run configurations, never by ./gradlew build.
+    localRuntime "at.petra-k:paucal:${paucal_version}+${minecraft_version}-neoforge"
+    localRuntime "vazkii.patchouli:Patchouli:${patchouli_version}"
+    localRuntime "com.samsthenerd.inline:inline-neoforge:${inline_version}"
+    localRuntime "com.illusivesoulworks.caelus:caelus-neoforge:${caelus_version}"
+    localRuntime "thedarkcolour:kotlinforforge-neoforge:${kotlinforforge_version}"
+    localRuntime "me.shedaniel.cloth:cloth-config-neoforge:${clothconfig_version}"
+}
+
+def modProps = [
+    mod_id                  : mod_id,
+    mod_name                : mod_name,
+    mod_version             : mod_version,
+    mod_authors             : mod_authors,
+    mod_license             : mod_license,
+    mod_description         : mod_description,
+    minecraft_version_range : minecraft_version_range,
+    neo_version_range       : neo_version_range,
+    hexcasting_version_range: hexcasting_version_range,
+]
+
+processResources {
+    inputs.properties modProps
+    filesMatching('META-INF/neoforge.mods.toml') {
+        expand modProps
+    }
+}

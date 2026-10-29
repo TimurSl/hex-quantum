@@ -1,0 +1,62 @@
+plugins {
+    id 'base'
+    id 'net.neoforged.moddev' version '2.0.148' apply false
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    group = mod_group
+    version = "${mod_version}+${minecraft_version}"
+
+    java {
+        toolchain.languageVersion = JavaLanguageVersion.of(21)
+        withSourcesJar()
+    }
+
+    repositories {
+        mavenCentral()
+        // Hex Casting, PAUCAL, Patchouli, Inline
+        maven { url = 'https://maven.blamejared.com' }
+        // Mixin annotations for the vanilla-only common project
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        // Kotlin for Forge (Hex Casting runtime dependency)
+        maven { url = 'https://thedarkcolour.github.io/KotlinForForge/' }
+        // Caelus
+        maven { url = 'https://maven.theillusivec4.top/' }
+        // Cloth Config (Inline runtime dependency)
+        maven { url = 'https://maven.shedaniel.me/' }
+        exclusiveContent {
+            forRepository { flatDir { dirs rootProject.file('libs') } }
+            filter { includeGroup 'local' }
+        }
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release = 21
+    }
+
+    // Adds Hex Casting to the given configuration, preferring a local jar in libs/ when one is present.
+    ext.addHexcasting = { String configuration ->
+        def localJar = rootProject.file("libs/hexcasting-neoforge-${minecraft_version}-${hexcasting_version}.jar")
+        if (localJar.exists()) {
+            dependencies.add(configuration, files(localJar))
+        } else {
+            dependencies.add(configuration, "at.petra-k.hexcasting:hexcasting-neoforge-${minecraft_version}:${hexcasting_version}") {
+                transitive = false
+            }
+        }
+    }
+}
+
+// Collect the distributable loader jars into the root build/libs so CI (and humans) find them in one place.
+def collectJars = tasks.register('collectJars', Copy) {
+    from(project(':neoforge').tasks.named('jar'))
+    into layout.buildDirectory.dir('libs')
+}
+
+tasks.named('build') {
+    dependsOn subprojects.collect { it.tasks.named('build') }
+    dependsOn collectJars
+}

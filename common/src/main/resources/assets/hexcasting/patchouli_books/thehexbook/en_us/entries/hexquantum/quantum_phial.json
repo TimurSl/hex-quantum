@@ -1,0 +1,14 @@
+{
+  "name": "item.hexquantum.quantum_phial",
+  "category": "hexcasting:hexquantum",
+  "icon": "hexquantum:quantum_phial",
+  "sortnum": 100,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexquantum.page.quantum_phial"
+    }
+  ]
+}

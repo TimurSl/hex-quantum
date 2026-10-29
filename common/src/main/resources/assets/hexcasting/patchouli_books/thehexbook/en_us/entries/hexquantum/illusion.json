@@ -1,0 +1,14 @@
+{
+  "name": "entity.hexquantum.illusion",
+  "category": "hexcasting:hexquantum",
+  "icon": "minecraft:armor_stand",
+  "sortnum": 103,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hexquantum.page.illusion"
+    }
+  ]
+}
