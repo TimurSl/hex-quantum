@@ -35,9 +35,8 @@ public final class HQBlocks {
             .sound(SoundType.AMETHYST)
             .pushReaction(PushReaction.BLOCK)));
 
-    @SuppressWarnings("DataFlowIssue")
     public static final Holder<BlockEntityType<?>> PHANTOM_BLOCK_ENTITY = BLOCK_ENTITIES.register("phantom_block",
-        () -> BlockEntityType.Builder.of(PhantomBlockEntity::new, PHANTOM_BLOCK.value()).build(null));
+        () -> Services.PLATFORM.blockEntityType(PhantomBlockEntity::new, PHANTOM_BLOCK.value()));
 
     private HQBlocks() {
     }

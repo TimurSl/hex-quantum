@@ -4,6 +4,7 @@ import io.github.timursl.hexquantum.HexQuantum;
 import io.github.timursl.hexquantum.data.PlayerQuantumData;
 import io.github.timursl.hexquantum.platform.IPlatform;
 import io.github.timursl.hexquantum.registry.HQRegistrar;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Registry;
@@ -12,6 +13,10 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.attachment.IAttachmentHolder;
@@ -23,6 +28,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
 /**
@@ -90,5 +96,11 @@ public class NeoForgePlatform implements IPlatform {
     @Override
     public boolean isFakePlayer(Player player) {
         return player instanceof FakePlayer;
+    }
+
+    @Override
+    @SuppressWarnings("DataFlowIssue")
+    public <T extends BlockEntity> BlockEntityType<T> blockEntityType(BiFunction<BlockPos, BlockState, T> factory, Block... blocks) {
+        return BlockEntityType.Builder.of(factory::apply, blocks).build(null);
     }
 }
