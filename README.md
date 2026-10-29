@@ -76,7 +76,7 @@ player data, networking, config) and event wiring that calls `HQEvents`; nothing
 ## Patterns
 
 All media costs and limits live in `hexquantum-server.toml` (per world, under `serverconfig/`). Costs are written in
-amethyst dust. Every pattern has a Hex Casting book entry under the **HexQuantum** category.
+amethyst dust. Every pattern has an entry in Hex Casting's own book categories (**Spells** and **Great Spells**; items and entities are under **Items**). The mod is translated into English and Russian (`ru_ru`).
 
 ## 1. Storage, Illusions and Waiting
 

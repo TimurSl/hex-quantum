@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:media_rift",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/great_spells",
   "icon": "minecraft:nether_star",
   "sortnum": 6,
   "advancement": "hexcasting:root",

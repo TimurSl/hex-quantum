@@ -1,0 +1,18 @@
+{
+  "name": "hexcasting.action.hexquantum:link/distributed",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 16,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexquantum:link/distributed",
+      "anchor": "hexquantum:link/distributed",
+      "input": "список (существа)",
+      "output": "",
+      "text": "hexquantum.page.link_distributed"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "entity.hexquantum.delayed_echo",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "minecraft:echo_shard",
   "sortnum": 104,
   "advancement": "hexcasting:root",

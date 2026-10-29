@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:phial/read",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 8,
   "advancement": "hexcasting:root",

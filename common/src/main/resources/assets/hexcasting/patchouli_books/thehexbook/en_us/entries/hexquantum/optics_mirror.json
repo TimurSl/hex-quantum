@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:optics/mirror",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 28,
   "advancement": "hexcasting:root",

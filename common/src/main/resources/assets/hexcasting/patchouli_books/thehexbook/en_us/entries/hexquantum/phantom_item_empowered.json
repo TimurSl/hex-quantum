@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:phantom/item/empowered",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 22,
   "advancement": "hexcasting:root",

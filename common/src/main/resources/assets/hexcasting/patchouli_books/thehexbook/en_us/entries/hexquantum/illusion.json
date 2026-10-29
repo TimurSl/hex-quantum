@@ -1,6 +1,6 @@
 {
   "name": "entity.hexquantum.illusion",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "minecraft:armor_stand",
   "sortnum": 103,
   "advancement": "hexcasting:root",

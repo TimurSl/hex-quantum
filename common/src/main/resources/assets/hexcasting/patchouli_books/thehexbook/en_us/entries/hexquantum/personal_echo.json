@@ -1,6 +1,6 @@
 {
   "name": "entity.hexquantum.personal_echo",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "minecraft:echo_shard",
   "sortnum": 105,
   "advancement": "hexcasting:root",

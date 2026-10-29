@@ -62,8 +62,6 @@
   "hexcasting.mishap.invalid_value.hexquantum.offset": "a vector no longer than %s",
   "hexcasting.mishap.invalid_value.hexquantum.seconds": "a number of seconds above 0 and at most %s",
   "hexcasting.mishap.invalid_value.hexquantum.velocity": "a non-zero vector no longer than %s",
-  "hexquantum.category.hexquantum": "HexQuantum",
-  "hexquantum.category.hexquantum.desc": "Illusions, echoes and phantoms; pockets folded out of space; media drawn from a rift. The patterns here bend what is real around me.",
   "hexquantum.iota.dimension.display": "Dimension %s",
   "hexquantum.page.cyclic_echo": "An echo of me forever retracing my steps. One hit ends it.",
   "hexquantum.page.cyclic_wisp": "A mote of media that casts the same hex again and again.",

@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:pocket_stash/open",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 0,
   "advancement": "hexcasting:root",

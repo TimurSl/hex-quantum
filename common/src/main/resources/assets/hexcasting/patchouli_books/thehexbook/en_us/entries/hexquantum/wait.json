@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:wait",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 5,
   "advancement": "hexcasting:root",

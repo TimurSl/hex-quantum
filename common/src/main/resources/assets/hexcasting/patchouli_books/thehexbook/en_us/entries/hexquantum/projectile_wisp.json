@@ -1,6 +1,6 @@
 {
   "name": "entity.hexquantum.projectile_wisp",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "minecraft:end_rod",
   "sortnum": 108,
   "advancement": "hexcasting:root",

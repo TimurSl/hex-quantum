@@ -1,0 +1,18 @@
+{
+  "name": "hexcasting.action.hexquantum:phial/read",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 8,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexquantum:phial/read",
+      "anchor": "hexquantum:phial/read",
+      "input": "",
+      "output": "число",
+      "text": "hexquantum.page.phial_read"
+    }
+  ]
+}

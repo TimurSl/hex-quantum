@@ -1,6 +1,6 @@
 {
   "name": "block.hexquantum.phantom_block",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "minecraft:glass",
   "sortnum": 101,
   "advancement": "hexcasting:root",
