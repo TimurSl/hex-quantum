@@ -1,6 +1,6 @@
 {
   "name": "block.hexquantum.portal_door",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "hexquantum:portal_door",
   "sortnum": 102,
   "advancement": "hexcasting:root",

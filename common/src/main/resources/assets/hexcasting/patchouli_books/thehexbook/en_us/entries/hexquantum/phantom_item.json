@@ -1,6 +1,6 @@
 {
   "name": "entity.hexquantum.phantom_item",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "minecraft:glass_bottle",
   "sortnum": 109,
   "advancement": "hexcasting:root",

@@ -1,6 +1,6 @@
 {
   "name": "entity.hexquantum.cyclic_wisp",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "minecraft:end_rod",
   "sortnum": 107,
   "advancement": "hexcasting:root",

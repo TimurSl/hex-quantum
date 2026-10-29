@@ -1,0 +1,18 @@
+{
+  "name": "hexcasting.action.hexquantum:phantom/block",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 19,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexquantum:phantom/block",
+      "anchor": "hexquantum:phantom/block",
+      "input": "вектор (источник), вектор (цель)",
+      "output": "",
+      "text": "hexquantum.page.phantom_block"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:illusion/swap",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 4,
   "advancement": "hexcasting:root",

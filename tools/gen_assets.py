@@ -11,11 +11,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import ru_translations as ru
+
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT / "tools"
 RES = ROOT / "common/src/main/resources"
 ASSETS = RES / "assets"
 BOOK = ASSETS / "hexcasting/patchouli_books/thehexbook/en_us"
+BOOK_RU = ASSETS / "hexcasting/patchouli_books/thehexbook/ru_ru"
 JAVA = ROOT / "common/src/main/java/io/github/timursl/hexquantum"
 
 GROUPS = {
@@ -85,9 +89,6 @@ LANG_EXTRA = {
     "hexcasting.mishap.bad_item.hexquantum.phantom_template": "an ordinary creature to copy",
     "hexcasting.mishap.bad_item.hexquantum.phantom_item": "a phantom item",
     "hexcasting.mishap.bad_block.hexquantum.copyable": "a block to copy",
-    "hexquantum.category.hexquantum": "HexQuantum",
-    "hexquantum.category.hexquantum.desc": "Illusions, echoes and phantoms; pockets folded out of space; media drawn from a rift. "
-                                          "The patterns here bend what is real around me.",
 }
 
 
@@ -134,6 +135,12 @@ def write_json(path, data):
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
 
 
+def translate_io(text):
+    for en, ru_word in ru.IO_WORDS:
+        text = text.replace(en, ru_word)
+    return text
+
+
 def entry_name(pid):
     return pid.replace("/", "_")
 
@@ -153,22 +160,21 @@ def main():
     lang.update(LANG_EXTRA)
 
     # ---- book ----
-    write_json(BOOK / "categories/hexquantum.json", {
-        "name": "hexquantum.category.hexquantum",
-        "icon": "hexquantum:quantum_phial",
-        "description": "hexquantum.category.hexquantum.desc",
-        "sortnum": 10,
-    })
+    # Entries go into Hex Casting's own categories: spells and great spells (patterns), items (things).
+    lang_ru = dict(ru.EXTRA)
+    for book in (BOOK, BOOK_RU):
+        if (book / "entries/hexquantum").exists():
+            for old in (book / "entries/hexquantum").glob("*.json"):
+                old.unlink()
+    (BOOK / "categories/hexquantum.json").unlink(missing_ok=True)
     entries_dir = BOOK / "entries/hexquantum"
-    if entries_dir.exists():
-        for old in entries_dir.glob("*.json"):
-            old.unlink()
+    entries_dir_ru = BOOK_RU / "entries/hexquantum"
     for i, p in enumerate(patterns):
         name = entry_name(p["id"])
         lang[f"hexquantum.page.{name}"] = p["desc"]
-        write_json(entries_dir / f"{name}.json", {
+        entry = {
             "name": f"hexcasting.action.hexquantum:{p['id']}",
-            "category": "hexcasting:hexquantum",
+            "category": "hexcasting:patterns/great_spells" if p.get("great") else "hexcasting:patterns/spells",
             "icon": "minecraft:amethyst_shard" if not p.get("great") else "minecraft:nether_star",
             "sortnum": i,
             "advancement": "hexcasting:root",
@@ -181,12 +187,20 @@ def main():
                 "output": p["out"],
                 "text": f"hexquantum.page.{name}",
             }],
-        })
+        }
+        write_json(entries_dir / f"{name}.json", entry)
+        ru_name, ru_desc = ru.PATTERNS[p["id"]]
+        lang_ru[f"hexcasting.action.hexquantum:{p['id']}"] = ru_name
+        lang_ru[f"hexquantum.page.{name}"] = ru_desc
+        entry_ru = json.loads(json.dumps(entry))
+        entry_ru["pages"][0]["input"] = translate_io(p["in"])
+        entry_ru["pages"][0]["output"] = translate_io(p["out"])
+        write_json(entries_dir_ru / f"{name}.json", entry_ru)
     for j, (name, key, _, icon, text) in enumerate(THINGS):
         lang[f"hexquantum.page.{name}"] = text
         write_json(entries_dir / f"{name}.json", {
             "name": key,
-            "category": "hexcasting:hexquantum",
+            "category": "hexcasting:items",
             "icon": icon,
             "sortnum": 100 + j,
             "advancement": "hexcasting:root",
@@ -194,7 +208,13 @@ def main():
             "pages": [{"type": "patchouli:text", "text": f"hexquantum.page.{name}"}],
         })
 
+    for name, key, _, _, _ in THINGS:
+        lang_ru[key], lang_ru[f"hexquantum.page.{name}"] = ru.THINGS[name]
+    missing = set(lang) - set(lang_ru)
+    if missing:
+        sys.exit(f"missing Russian translations: {sorted(missing)}")
     write_json(ASSETS / "hexquantum/lang/en_us.json", dict(sorted(lang.items())))
+    write_json(ASSETS / "hexquantum/lang/ru_ru.json", dict(sorted(lang_ru.items())))
 
     # ---- docs ----
     lines = ["# HexQuantum patterns", "",

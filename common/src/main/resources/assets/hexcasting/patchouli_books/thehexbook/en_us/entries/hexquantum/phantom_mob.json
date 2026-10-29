@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:phantom/mob",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 17,
   "advancement": "hexcasting:root",

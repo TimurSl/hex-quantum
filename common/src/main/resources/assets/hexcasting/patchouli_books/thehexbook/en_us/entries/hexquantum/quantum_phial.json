@@ -1,6 +1,6 @@
 {
   "name": "item.hexquantum.quantum_phial",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:items",
   "icon": "hexquantum:quantum_phial",
   "sortnum": 100,
   "advancement": "hexcasting:root",

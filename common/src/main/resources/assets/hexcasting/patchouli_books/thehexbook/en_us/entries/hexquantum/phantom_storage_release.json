@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:phantom_storage/release",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 25,
   "advancement": "hexcasting:root",

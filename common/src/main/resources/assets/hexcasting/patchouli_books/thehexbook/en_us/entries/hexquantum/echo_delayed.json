@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:echo/delayed",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 10,
   "advancement": "hexcasting:root",

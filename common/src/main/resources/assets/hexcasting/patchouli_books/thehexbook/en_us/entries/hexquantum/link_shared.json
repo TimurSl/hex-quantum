@@ -1,6 +1,6 @@
 {
   "name": "hexcasting.action.hexquantum:link/shared",
-  "category": "hexcasting:hexquantum",
+  "category": "hexcasting:patterns/spells",
   "icon": "minecraft:amethyst_shard",
   "sortnum": 15,
   "advancement": "hexcasting:root",

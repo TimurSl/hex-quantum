@@ -1,0 +1,18 @@
+{
+  "name": "hexcasting.action.hexquantum:echo/cyclic",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 12,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexquantum:echo/cyclic",
+      "anchor": "hexquantum:echo/cyclic",
+      "input": "",
+      "output": "сущность (эхо)",
+      "text": "hexquantum.page.echo_cyclic"
+    }
+  ]
+}

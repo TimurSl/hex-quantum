@@ -1,0 +1,18 @@
+{
+  "name": "hexcasting.action.hexquantum:quantum_shift",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 9,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexquantum:quantum_shift",
+      "anchor": "hexquantum:quantum_shift",
+      "input": "число (секунды)",
+      "output": "",
+      "text": "hexquantum.page.quantum_shift"
+    }
+  ]
+}

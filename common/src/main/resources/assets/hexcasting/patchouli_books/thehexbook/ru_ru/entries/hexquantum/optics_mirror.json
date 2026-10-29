@@ -1,0 +1,18 @@
+{
+  "name": "hexcasting.action.hexquantum:optics/mirror",
+  "category": "hexcasting:patterns/spells",
+  "icon": "minecraft:amethyst_shard",
+  "sortnum": 28,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexquantum:optics/mirror",
+      "anchor": "hexquantum:optics/mirror",
+      "input": "сущность (игрок), число (секунды)",
+      "output": "",
+      "text": "hexquantum.page.optics_mirror"
+    }
+  ]
+}
